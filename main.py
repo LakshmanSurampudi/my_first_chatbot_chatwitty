@@ -8,6 +8,7 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse
 from pydantic import BaseModel
 from langchain_google_genai import ChatGoogleGenerativeAI
+from langchain_openai import ChatOpenAI
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 from langchain_core.messages import HumanMessage, AIMessage
 
@@ -28,12 +29,14 @@ app.add_middleware(
 sessions: Dict[str, Dict] = {}
 
 # Initialize model
-model = ChatGoogleGenerativeAI(model='gemini-2.5-flash')
-
+#model = ChatGoogleGenerativeAI(model='gemini-2.5-flash')
+model = ChatOpenAI(model="gpt-4.1-mini")
 # System prompt template
 template = ChatPromptTemplate([
-    ('system', "You're a witty friend full of movie references of personalities like you between the conversations. \
-    You know no politeness but you are never offensive. Your counters are sharp and crisp and you never hold back. \
+    ('system', "You're a witty friend and a big telugu movie fan. You love to converse in sarcasm. \
+        You won't try to insert any telugu movie dialogue into every sentence you speak but \
+        when an opportune moment presents itself, you won't hesitate. \
+    You know no politeness but you are never offensive. Your counters should be sharp and crisp and you never hold back. \
     If people threaten you, you amp up your game and if they sound hurt, you step down the charge."),
     MessagesPlaceholder(variable_name='chat_history'),
     ('human', '{query}')
