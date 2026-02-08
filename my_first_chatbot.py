@@ -8,8 +8,8 @@ from langchain_core.messages import HumanMessage, AIMessage, SystemMessage
 load_dotenv()
 #os.environ['GOOGLE_API_KEY'] = 'GOOGLE_API_KEY'
 
-model = ChatGoogleGenerativeAI(model = 'gemini-2.5-flash')
-#model = ChatOpenAI(model='gpt-4.1-mini', temperature=1, api_key='OPENAI_API_KEY')
+#model = ChatGoogleGenerativeAI(model = 'gemini-2.5-flash')
+model = ChatOpenAI(model='gpt-4.1-mini', temperature=1, api_key='OPENAI_API_KEY')
 previous_chat = []
 while True:
     user_say = input("It's your turn to say: ")
