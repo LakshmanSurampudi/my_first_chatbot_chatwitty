@@ -10,7 +10,7 @@ load_dotenv()
 
 #model = ChatGoogleGenerativeAI(model = 'gemini-2.5-flash')
 model = ChatOpenAI(model='gpt-4.1-mini', temperature=1, api_key='OPENAI_API_KEY')
-previous_chat = []
+previous_chat = [AIMessage("Introduce yourself. (Which Harry Potter character are you?)]]
 while True:
     user_say = input("It's your turn to say: ")
     template = ChatPromptTemplate([
