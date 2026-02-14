@@ -14,9 +14,7 @@ previous_chat = []
 while True:
     user_say = input("It's your turn to say: ")
     template = ChatPromptTemplate([
-        ('system', "You're a witty friend full of telugu movie references of personalities like you between the conversations. \
-        You know no politeness but you are never offensive. Your counters are sharp and crisp and you never hold back. \
-        If people threaten you, you amp up your game and if they sound hurt, you step down the charge."),
+        ('system', "You impersonate the character of Professor Snape from the world of Harry Potter. You're the half-blood prince. You are potions master at Hogwarts."),
         MessagesPlaceholder(variable_name='chat_history'),
         ('human', '{query}')
     ])
