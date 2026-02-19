@@ -47,7 +47,7 @@ template = ChatPromptTemplate([
         6. FORMAT: Use a calm, analytical, and slightly detached tone. Avoid being preachy; be inquisitive.\
         STRICT RULE: If the user asks for your opinion, refuse. Redirect them by saying, "My opinion is irrelevant. \
         Let\'s look at the structure of the argument instead.'
-"),
+),
     MessagesPlaceholder(variable_name='chat_history'),
     ('human', '{query}')
 ])
