@@ -51,3 +51,46 @@ Direct recommendations, not options.
 ---
 
 ## Architecture
+User → Static Frontend → FastAPI /chat endpoint
+→ LangChain Prompt (System + History + Query)
+→ OpenAI GPT-4.1-mini
+→ Response + Updated Session History
+---
+
+## Local Setup
+
+```bash
+git clone https://github.com/LakshmanSurampudi/my_first_chatbot_chatwitty
+cd my_first_chatbot_chatwitty
+pip install -r requirements.txt
+
+# Add your API key to .env
+OPENAI_API_KEY=your_key_here
+
+python main.py
+# Visit http://localhost:8000
+```
+
+---
+
+## Evals
+
+Behavioral evals verify DRONA stays consistent and in character 
+across varied inputs. Test cases cover:
+
+- Intake enforcement — does it refuse to advise before profiling?
+- Mock interview character hold — does it break mid-session?
+- Flattery resistance — does it praise without justification?
+- Contradiction detection — does it catch profile inconsistencies?
+
+*(Eval scripts and results — coming soon)*
+
+---
+
+## Design Decisions
+
+Persona behavior is controlled entirely via a structured system 
+prompt — no fine-tuning. The prompt enforces a mandatory intake 
+flow, three distinct operating modes, and hard behavioral 
+constraints that override default LLM tendencies toward 
+encouragement and hedging.
