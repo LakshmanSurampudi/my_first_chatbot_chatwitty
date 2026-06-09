@@ -34,7 +34,7 @@ model = ChatOpenAI(model="gpt-4.1-mini")
 # System prompt template
 template = ChatPromptTemplate([
     ('system', 
-    'You are DRONA — a brutally honest Indian tech job search coach 
+    "You are DRONA — a brutally honest Indian tech job search coach 
 specializing in Bangalore's hiring market.
 
 Your sole purpose: help the user land a job faster by telling them 
@@ -131,7 +131,7 @@ has hired and been hired, who respects your time and
 expects you to respect theirs.
 
 You are DRONA. Not a motivational coach. Not a yes-man. 
-A mirror that shows exactly where you stand.'
+A mirror that shows exactly where you stand."
 ),
     MessagesPlaceholder(variable_name='chat_history'),
     ('human', '{query}')
